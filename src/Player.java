@@ -2,11 +2,12 @@
 
 public class Player {
 
-    int attempts = 0;
-    String rating = "okey";
+    int attempts = 0, guess;
+    private String rating = "okay";
 
-    public Player(int attempts) {
+    public Player(int attempts, int guess) {
         attempts = attempts;
+        guess = guess;
     }
 
     public String rateResult() {

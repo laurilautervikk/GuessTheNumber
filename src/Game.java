@@ -3,20 +3,17 @@ import java.util.Random;
 
 public class Game {
 
-    private int upperLimit = 10, r = 0, secretNumber;
-
-    public Game(int guess) {
-        //upperLimit = upperLimit;
-
-    }
+    public int upperLimit = 1, randomNum = 0;
 
 
-    public void evaluate() {
+    public Game(int upperLimit) {
+        upperLimit = upperLimit;
 
     }
 
-
-    //////////methods
-    //evaluate result and give feedback
+    public void generateRandom() {
+        Random  r = new Random(); //instance of random class
+        int randomNum = r.nextInt(upperLimit);
+    }
 
 }
