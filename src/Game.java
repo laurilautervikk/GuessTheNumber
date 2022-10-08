@@ -3,17 +3,17 @@ import java.util.Random;
 
 public class Game {
 
-    public int upperLimit = 1, randomNum = 0;
+    public int upperLimit = 1;
+    public int randomNum = 0;
 
 
     public Game(int upperLimit) {
-        upperLimit = upperLimit;
-
+        this.upperLimit = upperLimit;
     }
 
-    public void generateRandom() {
-        Random  r = new Random(); //instance of random class
+    public int generateRandom() {
+        Random  r = new Random();
         int randomNum = r.nextInt(upperLimit);
+        return randomNum;
     }
-
 }

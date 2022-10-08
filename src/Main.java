@@ -1,44 +1,41 @@
 import java.util.Scanner;
 
 public class Main {
-    //ask upper limit
-    //ask number p1
-    //give feedback
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-
-        Game game = new Game(0);
         Player player = new Player(0, 0);
+        Game game = new Game(0);
 
+        //get upper limit and generate random number
 
-
-        //1. generate random - not needed?
-        //game.generateRandom();
-
-        //2. ask for a guess
-//        while (game.randomNum != guess) {
-//            attempts ++ ;
-//            if (guess < randomNum && guess > 0){
-//                System.out.println("greater than " + guess);
-//            } else if (guess > randomNum && guess < upperLimit){
-//                System.out.println("smaller than " + guess);
-//            } else if (guess < 0 || guess > upperLimit) {
-//                System.out.println("out of range "); //0 will pass, otherwise say 'out of range' at the start
-//            }
-//            //continue to prompt for input
-//            System.out.println("Guess a number between 1 and " + upperLimit + ": ");
-//            guess = sc.nextInt();
-//        }
-
-        //0. ask for upper limit
         System.out.println("Set an upperLimit for the game (greater than 1): ");
         game.upperLimit = sc.nextInt();
+        game.generateRandom(); //not working
 
-        String message = "Upper limit %s, generateRandom() %s".formatted(game.upperLimit, game.generateRandom());
-        System.out.println(message);
+        System.out.println("random " + game.randomNum);
+        System.out.println("limit " + game.upperLimit);
 
+        //evaluate guess
+        while (game.randomNum != player.guess) {
+            String message = "";
+            player.attempts ++ ;
+            if (player.guess < game.randomNum && player.guess > 0){
+                message ="greater than " + player.guess;
+            } else if (player.guess > game.randomNum && player.guess < game.upperLimit){
+                message = "smaller than " + player.guess;
+            } else if (player.guess < 0 || player.guess > game.upperLimit) {
+                message = "out of range "; //0 will pass, otherwise say 'out of range' at the start
+            }
+            System.out.println(message);
+            //continue to prompt for input
+            System.out.println("Guess a number between 1 and " + game.upperLimit + ": ");
+            player.guess = sc.nextInt();
+        }
 
+        //display end result
+        System.out.println("Correct!");
+        System.out.println("It took you " + player.attempts + " attempt(s): " + player.rateResult());
 
     }
 }
