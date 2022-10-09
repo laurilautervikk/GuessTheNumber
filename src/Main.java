@@ -8,10 +8,9 @@ public class Main {
         Game game = new Game(0);
 
         //get upper limit and generate random number
-
         System.out.println("Set an upperLimit for the game (greater than 1): ");
         game.upperLimit = sc.nextInt();
-        game.generateRandom(); //not working
+        game.generateRandom();
 
         System.out.println("random " + game.randomNum);
         System.out.println("limit " + game.upperLimit);

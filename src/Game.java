@@ -9,11 +9,11 @@ public class Game {
 
     public Game(int upperLimit) {
         this.upperLimit = upperLimit;
+
     }
 
-    public int generateRandom() {
-        Random  r = new Random();
-        int randomNum = r.nextInt(upperLimit);
-        return randomNum;
+    public void generateRandom() {
+        Random  rand = new Random();
+        randomNum = rand.nextInt(upperLimit - 1) + 2;
     }
 }
